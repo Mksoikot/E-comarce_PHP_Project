@@ -1,3 +1,4 @@
+
 <nav class="navbar header-navbar pcoded-header">
                <div class="navbar-wrapper">
                    <div class="navbar-logo">
@@ -91,7 +92,9 @@
                                <a href="#!">
                                    <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                                    <span>
-                                       Mk Soikot
+                                       
+                                            <?= $_SESSION['Email']; ?>
+                                       
                                    </span>
                                    <i class="ti-angle-down"></i>
                                </a>
@@ -113,7 +116,7 @@
                                        </a>
                                    </li>
                                    <li>
-                                       <a href="#">
+                                       <a href="logout.php">
                                        <i class="ti-layout-sidebar-left"></i> Logout
                                    </a>
                                    </li>

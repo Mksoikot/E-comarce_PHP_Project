@@ -1,3 +1,11 @@
+<?php 
+    include ("class/adminBack.php");
+    session_start();
+    $adminId = $_SESSION['id'];
+    if($adminId== null){
+        header('location: index.php');
+    }
+?>
 <?php
 require_once "includes/header.php";
 ?>

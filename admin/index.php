@@ -1,8 +1,13 @@
 <?php
     include("class/adminback.php");
-    $obj_adminBack = new adminBack();
-    if(isset($_POST[admin_login])) {
+   
+    if(isset($_POST['login_btn'])) {
+        $obj_adminBack = new adminBack();
         $obj_adminBack->admin_login($_POST);
+    }
+    session_start();
+    if(isset($_SESSION['id'])){
+        header('location: dashboard.php');
     }
 ?>
 
