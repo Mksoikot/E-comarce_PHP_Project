@@ -39,7 +39,6 @@ require_once "includes/header.php";
                             <div class="main-body">
                                 <div class="page-wrapper">
                               <div class="page-body">
-                                      <div class="row">
                                     <?php 
                                        if($views){
                                            if($views=="dashboard"){
@@ -57,7 +56,6 @@ require_once "includes/header.php";
                                            }
                                        }
                                     ?>
-                                    </div>
 
                                     <div id="styleSelector">
 

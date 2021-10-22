@@ -36,6 +36,29 @@
                     return $errmsg;
                 }
             }
+                
+        }
+        function add_category($data){
+            $ctg_name = $data['ctg_name'];
+            $ctg_dess = $data['ctg_dess'];
+            $ctg_status = $data['ctg_status'];
+
+            $query = "INSERT INTO `category`(`ctg_name`, `ctg_dess`, `ctg_status`) VALUES ('$ctg_name','$ctg_dess','$ctg_status')";
+
+            if(mysqli_query($this->conn , $query)){
+                $message = "Category Added Successfully.";
+                return $message;
+            }else{
+                $message = "Category Not Added"; 
+                return $message;
+            }
+        }
+        function display_category(){
+            $query = "SELECT * FROM category";
+            if(mysqli_query($this->conn , $query)){
+                $return_ctg = mysqli_query($this->conn , $query);
+                return $return_ctg;
+            }
         }
     }
 
