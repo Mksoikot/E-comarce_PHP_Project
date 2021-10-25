@@ -60,6 +60,16 @@
                 return $return_ctg;
             }
         }
+
+        function published_category($id){
+            $query = "UPDATE category SET ctg_status=1 WHERE ctg_id=$id";
+            mysqli_query($this->conn , $query);
+        }
+
+        function unpublished_category($id){
+            $query = "UPDATE category SET ctg_status=0 WHERE ctg_id=$id";
+            mysqli_query($this->conn , $query);
+        }
     }
 
 ?>
