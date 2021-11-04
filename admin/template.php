@@ -42,7 +42,7 @@ require_once "includes/header.php";
                                     <?php 
                                        if($views){
                                            if($views=="dashboard"){
-                                               include("views/dashboard-view.php");
+                                            include("views/dashboard-view.php");
                                            }elseif($views == "add-cat"){
                                             include("views/add-category-view.php");
                                            }elseif($views == "add-product"){
@@ -53,6 +53,10 @@ require_once "includes/header.php";
                                             include("views/manage-product-view.php");
                                            }elseif($views == "manage-user"){
                                             include("views/manage-user-view.php");
+                                           }elseif($views == "edit-cat"){
+                                               include("views/edit-cat-view.php");
+                                           }elseif($views == "edit_product"){
+                                                include("views/edit_product_view.php");
                                            }
                                        }
                                     ?>

@@ -93,7 +93,7 @@
                                    <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
                                    <span>
                                        
-                                            <?= $_SESSION['Email']; ?>
+                                        <?= $_SESSION['Email']; ?>
                                        
                                    </span>
                                    <i class="ti-angle-down"></i>

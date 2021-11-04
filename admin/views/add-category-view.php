@@ -6,7 +6,14 @@
 ?>
 <?php
     if(isset($return_mesg)){
-        echo $return_mesg;
+        ?>
+     <div class="alert alert-success alert-dismissible fade show" role="alert">
+  <?php echo $return_mesg; ?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+      <?php 
     }
 ?>
 <h3>Add Category</h3>
