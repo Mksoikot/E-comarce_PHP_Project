@@ -20,15 +20,15 @@
 <form action="" method="post">
     <div class="form-group">
         <label for="ctg_name">Category Name</label>
-        <input type="text" name="ctg_name" class="form-control">
+        <input type="text" name="ctg_name" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="ctg_dess">Category Desscription</label>
-        <input type="text" name="ctg_dess" class="form-control">
+        <input type="text" name="ctg_dess" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="ctg_status">Category Status</label>
-        <select name="ctg_status" class="form-control">
+        <select name="ctg_status" class="form-control" required>
             <option value="1">Published</option>
             <option value="0">Unpublished</option>
         </select>

@@ -60,6 +60,13 @@
                 return $return_ctg;
             }
         }
+        function published_display_category(){
+            $query = "SELECT * FROM category WHERE ctg_status=1";
+            if(mysqli_query($this->conn , $query)){
+                $return_ctg = mysqli_query($this->conn , $query);
+                return $return_ctg;
+            }
+        }
 
         function published_category($id){
             $query = "UPDATE category SET ctg_status= 1 WHERE ctg_id=$id";
@@ -176,6 +183,35 @@
                 $msg = "Your File Must be a JPG Or PNG File";
                 return $msg;
             } 
+        }
+        function product_by_category($id){
+            $query = "SELECT * FROM product_info_ctg WHERE ctg_id=$id";
+            if(mysqli_query($this->conn , $query)){
+                $proinfo = mysqli_query($this->conn , $query);
+                return $proinfo;
+            }
+        }
+        function product_by_id($id){
+            $query = "SELECT * FROM product_info_ctg WHERE pdt_id=$id";
+            if(mysqli_query($this->conn , $query)){
+                $proinfo = mysqli_query($this->conn , $query);
+                return $proinfo;
+            }
+        }
+        function related_product($id){
+            $query = "SELECT * FROM product_info_ctg WHERE ctg_id=$id ORDER BY pdt_id DESC LIMIT 2";
+            if(mysqli_query($this->conn , $query)){
+                $proinfo = mysqli_query($this->conn , $query);
+                return $proinfo;
+            }
+        }
+        function ctg_by_id($id){
+            $query = "SELECT * FROM product_info_ctg WHERE ctg_id=$id";
+            if(mysqli_query($this->conn , $query)){
+                $proinfo = mysqli_query($this->conn , $query);
+                $ctg = mysqli_fetch_assoc($proinfo);
+                return $ctg;
+            }
         }
     }
 

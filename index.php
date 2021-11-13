@@ -1,4 +1,13 @@
 <?php
+    require_once "admin/class/adminBack.php";
+    $obj = new adminBack();
+    $ctg = $obj->published_display_category();
+    $ctgdatas = array();
+    while($data = mysqli_fetch_assoc($ctg)){
+        $ctgdatas[] = $data;
+    }
+?>
+<?php
     require_once "includes/head.php";
 ?>
 <body class="biolife-body">

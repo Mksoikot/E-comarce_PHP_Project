@@ -1,6 +1,6 @@
 <?php 
     $obj_adminBack = new adminBack();
-    $ctg_info = $obj_adminBack->display_category();
+    $ctg_info = $obj_adminBack->published_display_category();
      if(isset($_POST['pdt_btn'])){
          $return_msg = $obj_adminBack->add_product($_POST);
      }
@@ -14,11 +14,11 @@
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="pdt_name">Product Name</label>
-        <input type="text" name="pdt_name" class="form-control">
+        <input type="text" name="pdt_name" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="pdt_price">Product Price</label>
-        <input type="number" name="pdt_price" class="form-control">
+        <input type="number" name="pdt_price" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="pdt_des">Product Description</label>
@@ -26,7 +26,7 @@
     </div>
     <div class="form-group">
         <label for="pdt_ctg">Product Category</label>
-        <select name="pdt_ctg" class="form-control">
+        <select name="pdt_ctg" class="form-control" required>
             <option>Plase Select Category</option>
             <?php 
                 while($ctg = mysqli_fetch_assoc($ctg_info)){
@@ -38,7 +38,7 @@
     </div>
     <div class="form-group">
         <label for="pdt_image">Product Image</label>
-        <input type="file" name="pdt_image" class="form-control">
+        <input type="file" name="pdt_image" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="pdt_status">Product Status</label>

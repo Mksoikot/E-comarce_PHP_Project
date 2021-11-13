@@ -2,7 +2,7 @@
             <div class="container">
                 <div class="top-bar left">
                     <ul class="horizontal-menu">
-                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Organic@company.com</a></li>
+                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Mksoikotbhuiyan117@gmail.com</a></li>
                         <li><a href="#">Free Shipping for all Order of $99</a></li>
                     </ul>
                 </div>
