@@ -213,6 +213,66 @@
                 return $ctg;
             }
         }
+        function user_register($data){
+            $username = $data['user_name'];
+            $fast_name = $data['user_fastname'];
+            $last_name = $data['user_lastname'];
+            $email = $data['user_email'];
+            $password = md5($data['user_password']);
+            $mobile = $data['user_mobile'];
+            $user_roles = $data['user_roles'];
+
+            $get_user_data = "SELECT * FROM user WHERE user_name= '$username' or user_email= '$email'";
+            $sent_data = mysqli_query($this->conn, $get_user_data);
+            $row = mysqli_num_rows($sent_data);
+            if($row==1){
+                $msg= "This Username Or Email Already Exist!";
+                return $msg;
+            }else{
+               if(strlen($mobile)< 11 or strlen($mobile)> 11){
+                   $msg = "Your Mobile Number Should Not Be Less Then Or Greter Then 11 Digit!";
+                   return $msg;
+               }else{
+                $query = "INSERT INTO `user`(`user_name`, `user_fastname`, `user_lastname`, `user_email`, `user_password`, `user_mobile`, `user_roles`) VALUES ('$username','$fast_name','$last_name','$email','$password',$mobile,$user_roles)";
+                if(mysqli_query($this->conn , $query)){
+                    $msg= "Your Account Successfully Registererd";
+                    return $msg;
+                }
+               }
+            }
+        }
+        function user_login($data){
+            $email = $data['user_email'];
+            $password = md5($data['user_password']);
+            $query = "SELECT * FROM user WHERE user_email = '$email' AND user_password = '$password'";
+           
+        
+            if(mysqli_query($this->conn,$query)){
+                $result = mysqli_query($this->conn,$query);
+                $user_info = mysqli_fetch_assoc($result);
+
+
+                if($user_info){
+                    header('location: user_profile.php');
+                    session_start();
+                    $_SESSION['user_id'] = $user_info['user_id'];
+                    $_SESSION['email'] = $user_info['user_email'];
+                    $_SESSION['password'] = $user_info['user_password'];
+                    $_SESSION['user_name'] = $user_info['user_name'];
+                }else{
+                    $errmsg = "Your email or Password Is Incorrect!";
+                    return $errmsg;
+                }
+            }
+                
+        }
+        function user_logout(){
+            unset($_SESSION['user_id']);
+            unset($_SESSION['email']);
+            unset($_SESSION['password']);
+            unset($_SESSION['user_name']);
+            header('location: user_login.php');
+        }
     }
 
 ?>
